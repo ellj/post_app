@@ -1,0 +1,8 @@
+<div class="card mt-4">
+  <div class="card-body">
+    <h5 class="card-title"><%= post.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><small>Posted by <%= post.user.email %></small></h6>
+    <p class="card-text"><%= post.body.truncate(100) %></p>
+    <%= button_to '<i class="bi bi-binoculars"></i> View'.html_safe, post_path(post), class: 'btn btn-primary', method: :get %>
+  </div>
+</div>

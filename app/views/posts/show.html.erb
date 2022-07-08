@@ -1,0 +1,17 @@
+<div class="card mt-4">
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.title %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><small>Posted by <%= @post.user.email %> on <%= @post.created_at.strftime("%d-%m-%Y %H:%M") %></small></h6>
+    <p class="card-text"><%= @post.body %></p>
+    <div style="display:inline-block;position: relative;">
+      <%= button_to '<i class="bi bi-binoculars"></i> View'.html_safe, post_path(@post), class: 'btn btn-primary', method: :get, form: {style: 'display:inline-block;'} %>
+      <% if !@current_user.nil? %>
+        <%= button_to '<i class="bi bi-pencil-square"></i> Edit'.html_safe, edit_post_path(@post), 
+        form: {style: 'display:inline-block;'}, class: 'btn btn-primary', method: :get if @post.user_id == @current_user.id %>
+        <%= button_to '<i class="bi bi-trash"></i> Delete'.html_safe, post_path(@post), 
+        class: 'btn btn-danger', form: {style: 'display:inline-block;'}, method: :delete if @post.user_id == @current_user.id %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PostApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body class="mb-4">
+    <%= render 'layouts/navbar' %>
+    <div class="container">
+
+    <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %> mt-4">
+        <%= value %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div>
+  </body>
+</html>

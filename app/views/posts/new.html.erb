@@ -1,0 +1,13 @@
+<%= form_for @post do |form| %>
+<h3 class="mt-2">New Post</h3>
+<div class="card mt-2">
+  <div class="card-body">
+    <%= form.label :title, class: 'form-label' %>
+    <%= form.text_field 'title', class: 'form-control' %>
+    <%= form.label 'Write something', class: 'form-label mt-2' %>
+    <%= form.text_area :body, class: 'form-control' %>
+    <%= form.submit 'Submit', class: 'btn btn-primary mt-4' %>
+    <%= form.button 'Reset', class: 'btn btn-primary mt-4', type: :reset %>
+  </div>
+</div>
+<% end %>
